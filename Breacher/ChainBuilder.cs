@@ -14,7 +14,7 @@ namespace Breacher
             foreach (var target in targets.Skip(1))
             {
                 int i_t = 0;
-                for (int i_result = 0; i_result < result.Count; i_result++)
+                for (int i_result = 0; i_result < result.Count && i_t < target.Length; i_result++)
                 {
                     if (result[i_result] != target[i_t])
                     {

@@ -52,5 +52,20 @@ namespace BreacherTest
 
             ChainBuilder.Squish(input).Should().BeEquivalentTo(expected);
         }
+
+        [Test]
+        public void Squish_Test_4()
+        {
+            var input = new int[][]
+            {
+                new [] {1,2},
+                new [] {1,3,2},
+                new [] {2,1,3},
+            };
+
+            var expected = new[] { 1, 2, 1, 3, 2 };
+
+            ChainBuilder.Squish(input).Should().BeEquivalentTo(expected);
+        }
     }
 }
