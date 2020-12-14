@@ -4,15 +4,18 @@ using FluentAssertions;
 
 using NUnit.Framework;
 
+using System.Collections.Generic;
+
 namespace BreacherTest
 {
-    public class ChainBuilderTest
+    public class SolutionTest
     {
+        public Solution Subject(IEnumerable<int[]> input) => new Solution(input);
 
         [Test]
         public void Squish_Test_1()
         {
-            var input = new int[][]
+            IEnumerable<int[]> input = new List<int[]>
             {
                 new [] {1,2},
                 new [] {2,5,6},
@@ -21,13 +24,13 @@ namespace BreacherTest
 
             var expected = new[] { 1, 2, 5, 6, 2 };
 
-            ChainBuilder.Squish(input).Should().BeEquivalentTo(expected);
+            Solution.Squish(input).Should().BeEquivalentTo(expected);
         }
 
         [Test]
         public void Squish_Test_2()
         {
-            var input = new int[][]
+            var input = new List<int[]>
             {
                 new [] {1,2},
                 new [] {2,5,6,1},
@@ -36,13 +39,13 @@ namespace BreacherTest
 
             var expected = new[] { 1, 2, 5, 6, 1, 2, 8 };
 
-            ChainBuilder.Squish(input).Should().BeEquivalentTo(expected);
+            Solution.Squish(input).Should().BeEquivalentTo(expected);
         }
 
         [Test]
         public void Squish_Test_3()
         {
-            var input = new int[][]
+            var input = new List<int[]>
             {
                 new [] {1,2},
                 new [] {1,2,8},
@@ -50,13 +53,13 @@ namespace BreacherTest
 
             var expected = new[] { 1, 2, 8 };
 
-            ChainBuilder.Squish(input).Should().BeEquivalentTo(expected);
+            Solution.Squish(input).Should().BeEquivalentTo(expected);
         }
 
         [Test]
         public void Squish_Test_4()
         {
-            var input = new int[][]
+            var input = new List<int[]>
             {
                 new [] {1,2},
                 new [] {1,3,2},
@@ -65,7 +68,7 @@ namespace BreacherTest
 
             var expected = new[] { 1, 2, 1, 3, 2 };
 
-            ChainBuilder.Squish(input).Should().BeEquivalentTo(expected);
+            Solution.Squish(input).Should().BeEquivalentTo(expected);
         }
     }
 }
