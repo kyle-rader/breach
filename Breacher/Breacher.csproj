@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="24.txt" />
+    <None Remove="25.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NLog" Version="4.7.6" />
     <PackageReference Include="System.IO.Abstractions" Version="13.2.5" />
   </ItemGroup>
