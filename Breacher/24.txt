@@ -1,0 +1,12 @@
+5
+
+1c 1c 1c 1c 55 1c
+1c 1c bd 7a 7a 1c
+1c 55 7a 55 7a e9
+55 1c 1c 1c 7a 1c
+bd 55 1c e9 1c 55
+1c 55 55 7a 1c 1c
+
+55 1c
+1c 1c 55
+1c 55 bd 55
