@@ -9,6 +9,8 @@ namespace Breacher
         private IEnumerable<Target> _path;
         public int Weight;
         public IEnumerable<int> Chain;
+        public int Length;
+        private string _id;
 
         public Attempt(IEnumerable<Target> path)
         {
@@ -31,11 +33,24 @@ namespace Breacher
             _path = path;
             Weight = path.Select(p => p.weight).Sum();
             Chain = Squish(path.Select(p => p.values));
+            Length = Chain.Count();
+            _id = string.Join("", Chain);
         }
 
         public override string ToString()
         {
             return $"weight: {Weight,1}, cnt: {_path.Count(),1} Set: ({string.Join(", ", _path)}) : {string.Join(' ', Chain)}";
+        }
+
+        public override int GetHashCode()
+        {
+            return _id.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Attempt)) return false;
+            return (obj as Attempt)._id.Equals(_id);
         }
 
         public static IEnumerable<int> Squish(IEnumerable<int[]> targets)
