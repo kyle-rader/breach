@@ -14,14 +14,14 @@ namespace Breacher
 
             var targets = new Target[]
             {
-                new Target(new [] { 1, 2 }, 1),
-                new Target(new [] { 2, 1, 3 }, 2),
-                new Target(new [] { 1, 3, 2 }, 3),
+                new Target(new [] { 1, 1, 2 }, 1),
+                new Target(new [] { 3, 2, 1, 1 }, 2),
+                new Target(new [] { 2, 1, 1, 3 }, 3),
             };
 
             foreach (var path in targets.GetAllCombinationsAndPermutations())
             {
-                var solution = new Solution(path);
+                var solution = new Attempt(path);
                 Console.WriteLine(solution);
             }
 
