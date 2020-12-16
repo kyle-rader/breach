@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Breacher", "Breacher\Breacher.csproj", "{A35D851E-35E4-4DC8-9270-D002AADA1C7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreacherTest", "BreacherTest\BreacherTest.csproj", "{BB5183CE-3DDE-4FFB-9497-F392F5CEFDE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreacherTest", "BreacherTest\BreacherTest.csproj", "{BB5183CE-3DDE-4FFB-9497-F392F5CEFDE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B94345B1-C231-49A3-80F1-4ECA591A42A2}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

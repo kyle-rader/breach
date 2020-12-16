@@ -65,7 +65,27 @@ namespace Breacher
                 {
                     if (result[i_result] != target[i_t])
                     {
-                        // if i_t > 0, we need to back track i_result by that much to restart the tracking, because we might have matched a prefix
+                        /* if i_t > 0, we need to back track i_result by that much to restart the tracking
+                         * e.g.
+                         *
+                         * While trying to squish 112 into 1111:
+                         *
+                         * 1 1 1 1
+                         * | | x          When i_t and i_result are at x, we stop, and reset.
+                         * 1 1 2          We need to restart at the first position
+                         * 
+                         * So we backtrack i_result by i_t. Leaving the next loop iteration checking:
+                         * 1 1 1 1
+                         *   | | x
+                         *   1 1 2
+                         *
+                         * Followed by
+                         * 
+                         * 1 1 1 1
+                         *     | | ✔
+                         *     1 1 2
+                        */
+
                         i_result -= i_t;
                         // reset the tracker in target.
                         i_t = 0;
