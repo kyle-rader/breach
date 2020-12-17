@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Breacher
 {
-    public class FastStack<T>
+    public class StackSet<T>
     {
         private const int InitialCapcity = 12;
         private Stack<T> stack = new Stack<T>(capacity: InitialCapcity);

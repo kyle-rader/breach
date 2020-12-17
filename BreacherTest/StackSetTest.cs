@@ -8,11 +8,11 @@ using System;
 
 namespace BreacherTest
 {
-    public class FastStackTest
+    public class StackSetTest
     {
-        FastStack<char> Subject()
+        StackSet<char> Subject()
         {
-            var subject = new FastStack<char>();
+            var subject = new StackSet<char>();
             subject.Push('a');
             subject.Push('b');
             subject.Push('c');
@@ -23,7 +23,7 @@ namespace BreacherTest
         [Test]
         public void ItCanPush()
         {
-            var subject = new FastStack<char>();
+            var subject = new StackSet<char>();
             subject.Push('a').Should().Be(1);
         }
 
