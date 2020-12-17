@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace Breacher
 {
-    public class StackSet<T>
+    public class StackSet<T> : IEnumerable<T>
     {
         private const int InitialCapcity = 12;
         private Stack<T> stack = new Stack<T>(capacity: InitialCapcity);
@@ -30,6 +31,16 @@ namespace Breacher
         public bool Contains(T item)
         {
             return set.Contains(item);
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return stack.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return stack.GetEnumerator();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Breacher
         private const int SQUISH_RESULT_CAPACITY = 25;
         private IEnumerable<Target> _path;
         public int Weight;
-        public IEnumerable<int> Chain;
+        public int[] Chain;
         public int Length;
         private string _id;
 
@@ -32,7 +32,7 @@ namespace Breacher
         {
             _path = path;
             Weight = path.Select(p => p.weight).Sum();
-            Chain = Squish(path.Select(p => p.values));
+            Chain = Squish(path.Select(p => p.values)).ToArray();
             Length = Chain.Count();
             _id = string.Join("", Chain);
         }
