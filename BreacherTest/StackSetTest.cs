@@ -4,8 +4,6 @@ using FluentAssertions;
 
 using NUnit.Framework;
 
-using System;
-
 namespace BreacherTest
 {
     public class StackSetTest
