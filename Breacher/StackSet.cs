@@ -15,8 +15,8 @@ namespace Breacher
 
         public int Push(T v)
         {
+            if (!set.Add(v)) throw new AlreadyInStackSetException($"'{v}' is already in the stack. This is a StackSet and does not allow duplicates. Use the Contains method to efficiently check for existence.");
             stack.Push(v);
-            set.Add(v);
             return stack.Count;
         }
 

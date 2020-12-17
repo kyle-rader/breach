@@ -4,6 +4,8 @@ using FluentAssertions;
 
 using NUnit.Framework;
 
+using System;
+
 namespace BreacherTest
 {
     public class StackSetTest
@@ -59,6 +61,16 @@ namespace BreacherTest
 
             var d = subject.Pop();
             subject.Contains(d).Should().BeFalse();
+        }
+
+        [Test]
+        public void AddingSomethingAlreadyThereThrows()
+        {
+            var subject = Subject();
+            var startCount = subject.Count;
+            Action addDuplicate = () => subject.Push('a');
+            addDuplicate.Should().Throw<AlreadyInStackSetException>();
+            subject.Count.Should().Be(startCount);
         }
     }
 }
