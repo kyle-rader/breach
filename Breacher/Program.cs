@@ -10,7 +10,7 @@ namespace Breacher
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter your puzzle input:\n");
+            Console.WriteLine("Enter your puzzle input (or pipe from stdin):");
 
             string puzzleInput = ReadLinesUntilDoubleNewline();
             string targetsInput = ReadLinesUntilDoubleNewline();
@@ -28,11 +28,12 @@ namespace Breacher
             {
                 if (matrix.Check(attempt.Chain, bufferSize, out var path))
                 {
-                    Console.WriteLine($"\nFound solution with weight {attempt.Weight} length: {path.Count}");
-                    foreach (var step in path)
+                    Console.WriteLine($"Found solution with weight {attempt.Weight} length: {path.Count}");
+                    foreach (var step in path.Reverse())
                     {
                         Console.WriteLine($" [{step.row}, {step.col} ] ({puzzle[step.row, step.col]:X})");
                     }
+                    break;
                 }
             }
 
