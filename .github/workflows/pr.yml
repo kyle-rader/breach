@@ -1,0 +1,17 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches: main
+
+jobs:
+  run-tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.100'
+      - run: dotnet test
