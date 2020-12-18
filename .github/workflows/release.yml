@@ -17,4 +17,4 @@ jobs:
       - name: Nuget Push
         env:
           token: ${{ secrets.nuget_token }}
-        run: dotnet nuget push dist/breacher*.nupkg --api-key "$token"
+        run: dotnet nuget push dist/breacher*.nupkg --api-key "$token" --source https://api.nuget.org/v3/index.json
