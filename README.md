@@ -1,5 +1,5 @@
 # `breacher`
-A puzzle solver for the Cyberpunk 2077 breacher minigame.
+A puzzle solver for the [Cyberpunk 2077 breacher minigame](https://www.rockpapershotgun.com/2020/12/14/cyberpunk-2077-hacking-minigame-breach-protocol-explained/).
 
 ## Getting Started
 
@@ -59,7 +59,7 @@ ff 1c bd e9
 ## Solution Format
 Right now the solution chain is just printed from start to finish, with the coordinates and values. (TBD print as matrix to make it easier to follow).
 
-The coordinates work as follows:
+The coordinates (a.k.a _indeces_) work as follows (using [puzzle 40](./puzzles/40.txt))
 ```
     1  2  3  4  5  <-- columns
  1  1c bd 55 55 1c
