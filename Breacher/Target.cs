@@ -1,6 +1,6 @@
 ﻿namespace Breacher
 {
-    public class Target
+    public struct Target
     {
         public Target(int[] values, int weight)
         {
@@ -10,10 +10,5 @@
 
         public int[] values;
         public int weight;
-
-        public override string ToString()
-        {
-            return $"[{string.Join(',', values)}]";
-        }
     }
 }

@@ -5,6 +5,7 @@ using FluentAssertions;
 using NUnit.Framework;
 
 using System;
+using System.Linq;
 
 namespace BreacherTest
 {
@@ -58,10 +59,10 @@ e9 55 1c";
         [TestCase("01 02  \n ff  0a  ff \n")]
         public void Parse_The_Targets(string input)
         {
-            InputParser.ParseTargets(input).Should().BeEquivalentTo(new[]
+            InputParser.ParseTargets(input).Select(t => t.values).Should().BeEquivalentTo(new[]
             {
-                new Target(new [] {1, 2}, 1),
-                new Target(new [] {255, 10, 255}, 2),
+                new [] {1, 2},
+                new [] {255, 10, 255},
             });
         }
 

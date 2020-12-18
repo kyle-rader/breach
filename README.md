@@ -7,7 +7,7 @@ You can now use this CLI to solve Breacher puzzles!
 
 _Distribution through the `dotnet` CLI and nuget.org is coming soon along with self-contained executables for Windows, OSX, and Linux._
 
-### Option 1: Run/build from source
+## Run/build from source
 1. [Install the dotnet CLI (.NET SDK 5.0.101)](https://dotnet.microsoft.com/download/dotnet/5.0)
 2. [Install Git](https://git-scm.com/) for your operating system.
 3. [Open a terminal](https://www.google.com/search?rlz=1C1GCEA_enUS911US911&sxsrf=ALeKk01gg9j9o5joiNmR79cQ3YfaJC61Jw%3A1608280570266&ei=-mncX4fVD9fL-gSu4bKgBw&q=how+to+open+a+terminal&oq=how+to+open+a+terminal&gs_lcp=CgZwc3ktYWIQAzIECCMQJzIKCAAQyQMQFBCHAjICCAAyAggAMgIIADICCAAyAggAMgIIADICCAAyAggAOgQIABBHOggIABCxAxCDAToLCC4QsQMQxwEQowI6BAguEEM6BQgAELEDOgQIABBDOggILhCxAxCDAToHCAAQyQMQQzoCCC46CAgAEMkDEJECOgUIABCRAjoHCAAQFBCHAlDOYFidcmDndWgAcAJ4AYABUIgBygiSAQIyMpgBAKABAaoBB2d3cy13aXrIAQjAAQE&sclient=psy-ab&ved=0ahUKEwiHutuAkNftAhXXpZ4KHa6wDHQQ4dUDCA0&uact=5) and clone this repo.
@@ -15,19 +15,63 @@ _Distribution through the `dotnet` CLI and nuget.org is coming soon along with s
    git clone https://github.com/kyle-rader/breacher.git
    ```
 4. `cd` into the repo.
-5. Run the program via:
+5. Compile the program
    ```
-   dotnet run -p Breacher
+   publish.cmd
    ```
-   This will restore, build, and run the project.
+   This will make a folder called `dist` in which you will find the self-contained executable.
+   You can then run it via
+   ```
+   dist\breacher.exe
+   ```
+6. Running the program
+   1. Enter input **manually** by running the program with no arguments. e.g.
+      ```
+      $ dist\breacher
+      You have opted to enter your puzzle manually. Enter your full puzzle input now.
+      End your input with a single q at the end to finish entry and begin solving.
+      4
 
-   By default it will wait for puzzle input on the CLI. You can also give the input by sending it on standard in (`stdin` for short).
+      1 2 3
+      1 2 3
+      1 2 3
 
-   Writing the input into a file can be easier in case you type a mistake. For example, on Windows piping the file looks like this:
-   ```
-   type puzzles\01.txt | dotnet run -p Breacher
-   ```
-   The `|` (vertical bar) is the _pipe_ operator in most terminals.
+      1 1 2
+      1 2 2
+      q
+      Found solution with weight 3 length: 4
+      [ 1, 1 ] (1)
+      [ 2, 1 ] (1)
+      [ 2, 2 ] (2)
+      [ 1, 2 ] (2)
+      Solved in 22.69 ms
+      ```
+
+   2. Enter input **with an input file**. The input file _should not have_ a `q` at the end.
+      ```
+      $ dist\breacher input.txt
+      Reading input from input.txt
+      Found solution with weight 3 length: 4
+      [ 1, 1 ] (1)
+      [ 2, 1 ] (1)
+      [ 2, 2 ] (2)
+      [ 1, 2 ] (2)
+      Solved in 22.69 ms
+      ```
+
+   3. Enter input by **pipeing from stdin**. The input file _should not have_ a `q` at the end.
+      ```
+      $ type input.txt | dist\breacher
+      Reading input from standard in.
+      Found solution with weight 3 length: 4
+      [ 1, 1 ] (1)
+      [ 2, 1 ] (1)
+      [ 2, 2 ] (2)
+      [ 1, 2 ] (2)
+      Solved in 22.69 ms
+      ```
+
+      (The `|` (vertical bar) is what we call the _pipe_ operator.)
 
 ## Puzzle Input Format
 ```html
@@ -85,11 +129,11 @@ Found solution with weight 5 length: 6
 Solved in 26.64 ms
 ```
 
-## Future Work
+# Future Work
 * Print the solution visually to make it easier to follow.
 * Build GUI to allow pasting screen shots and parse puzzle input using ML for ultimate laziness.
 
-## Closing Notes
+# Closing Notes
 I found this to be one of the more interesting mini game puzzles in a video game. Programming a solution was simply out of interest and for fun to check myself. The mini-game is to emulate "hacking" so I don't feel bad about actually "hacking" the game ;)
 
 Suggestions welcome. Feel free to open a pull request!

@@ -8,6 +8,7 @@
     <OutputType>Exe</OutputType>
     <OutputPath>../dist</OutputPath>
     <PublishTrimmed>true</PublishTrimmed>
+    <!-- <PublishReadyToRun>true</PublishReadyToRun> -->
 
     <TargetFramework>netcoreapp5.0</TargetFramework>
     <RuntimeIdentifiers>win10-x64;osx-x64;linux-x64</RuntimeIdentifiers>
