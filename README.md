@@ -75,9 +75,9 @@ Solved in 22.69 ms
 <targets: one per line>
 ```
 
-For example see the [demo puzzles](./puzzles/).
+For example see the [demo puzzles](./puzzles/txt/).
 
-Puzzle `01.txt` is:
+Puzzle [`txt/01.txt`](./puzzles/txt/01.txt) is:
 ```
 7
 
@@ -96,7 +96,7 @@ ff 1c bd e9
 # Solution Format
 Right now the solution chain is just printed from start to finish, with the coordinates and values. (TBD print as matrix to make it easier to follow).
 
-The coordinates (a.k.a _indeces_) work as follows (using [puzzle 40](./puzzles/40.txt))
+The coordinates (a.k.a _indeces_) work as follows (using [puzzle 40](./puzzles/txt/40.txt))
 ```
     1  2  3  4  5  <-- columns
  1  1c bd 55 55 1c
@@ -109,7 +109,7 @@ The coordinates (a.k.a _indeces_) work as follows (using [puzzle 40](./puzzles/4
    Rows
 ```
 
-The output (on Windows) for [puzzle 40](./puzzles/40.txt) looks like:
+The output (on Windows) for [puzzle 40](./puzzles/txt/40.txt) looks like:
 ```
 type puzzles\40.txt | dotnet run -p Breacher
 Found solution with weight 5 length: 6
