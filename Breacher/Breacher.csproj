@@ -1,14 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp5.0</TargetFramework>
-  </PropertyGroup>
+    <Title>cp77-breacher</Title>
+    <Description>A cli for solving the breacher mini game puzzles in Cyberpunk 2077</Description>
+    <Authors>Kyle W. Rader (https://github.com/kyle-rader)</Authors>
 
-  <ItemGroup>
-    <None Remove="24.txt" />
-    <None Remove="25.txt" />
-  </ItemGroup>
+    <OutputType>Exe</OutputType>
+    <OutputPath>../dist</OutputPath>
+    <PublishTrimmed>true</PublishTrimmed>
+
+    <TargetFramework>netcoreapp5.0</TargetFramework>
+    <RuntimeIdentifiers>win10-x64;osx-x64;linux-x64</RuntimeIdentifiers>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="NLog" Version="4.7.6" />

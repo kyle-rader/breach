@@ -31,7 +31,7 @@ namespace Breacher
                     Console.WriteLine($"Found solution with weight {attempt.Weight} length: {path.Count}");
                     foreach (var step in path.Reverse())
                     {
-                        Console.WriteLine($" [{step.row}, {step.col} ] ({puzzle[step.row, step.col]:X})");
+                        Console.WriteLine($"[ {step.row+1}, {step.col+1} ] ({puzzle[step.row, step.col]:X})");
                     }
                     break;
                 }
