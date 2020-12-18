@@ -1,6 +1,8 @@
 # `breacher`
 A puzzle solver for the [Cyberpunk 2077 breacher minigame](https://www.rockpapershotgun.com/2020/12/14/cyberpunk-2077-hacking-minigame-breach-protocol-explained/).
 
+![Dotnet Test](https://github.com/kyle-rader/breacher/workflows/Dotnet%20Test/badge.svg)
+
 ## Getting Started
 
 You can now use this CLI to solve Breacher puzzles!
