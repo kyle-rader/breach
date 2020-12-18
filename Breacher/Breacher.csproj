@@ -4,6 +4,7 @@
     <Title>cp77-breacher</Title>
     <Description>A cli for solving the breacher mini game puzzles in Cyberpunk 2077</Description>
     <Authors>Kyle W. Rader (https://github.com/kyle-rader)</Authors>
+    <RepositoryUrl>https://github.com/kyle-rader/breacher</RepositoryUrl>
 
     <AssemblyName>breacher</AssemblyName>
     <Version>0.1.0</Version>
