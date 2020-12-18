@@ -61,14 +61,17 @@ Right now the solution chain is just printed from start to finish, with the coor
 
 The coordinates work as follows:
 ```
-    1  2  3  4  5 <-- columns
+    1  2  3  4  5  <-- columns
  1  1c bd 55 55 1c
  2  bd 55 1c bd 55
  3  1c 1c 1c e9 55
  4  bd bd 1c bd e9
  5  1c 55 bd 55 1c
- ^ Rows
+ ^
+  \
+   Rows
 ```
+
 The output (on Windows) for [puzzle 40](./puzzles/40.txt) looks like:
 ```
 type puzzles\40.txt | dotnet run -p Breacher
