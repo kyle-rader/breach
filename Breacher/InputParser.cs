@@ -39,8 +39,8 @@ namespace Breacher
                 try
                 {
                     int[] values = line
-                        .Split(' ')
-                        .Select(num => int.Parse(num, NumberStyles.HexNumber))
+                        .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                        .Select(num => int.Parse(num.Trim(), NumberStyles.HexNumber))
                         .ToArray();
 
                     targets.Add(new Target(values, weight));

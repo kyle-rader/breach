@@ -54,12 +54,10 @@ e9 55 1c";
             subject.Should().Throw<HexParsingException>();
         }
 
-        [Test]
-        public void Parse_The_Targets()
+        [TestCase("01 02\nff 0a ff")]
+        [TestCase("01 02  \n ff  0a  ff \n")]
+        public void Parse_The_Targets(string input)
         {
-            var input = @"
-01 02
-ff 0a ff";
             InputParser.ParseTargets(input).Should().BeEquivalentTo(new[]
             {
                 new Target(new [] {1, 2}, 1),

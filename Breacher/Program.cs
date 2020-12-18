@@ -10,7 +10,7 @@ namespace Breacher
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(@"Enter your puzzle input:\n");
+            Console.WriteLine("Enter your puzzle input:\n");
 
             string puzzleInput = ReadLinesUntilDoubleNewline();
             string targetsInput = ReadLinesUntilDoubleNewline();
