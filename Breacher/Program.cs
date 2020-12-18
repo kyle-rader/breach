@@ -12,9 +12,9 @@ namespace Breacher
         {
             Console.WriteLine("Enter your puzzle input (or pipe from stdin):");
 
+            string bufferInput = ReadLinesUntilDoubleNewline();
             string puzzleInput = ReadLinesUntilDoubleNewline();
             string targetsInput = ReadLinesUntilDoubleNewline();
-            string bufferInput = ReadLinesUntilDoubleNewline();
 
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
