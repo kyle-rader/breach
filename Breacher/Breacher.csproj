@@ -5,10 +5,14 @@
     <Description>A cli for solving the breacher mini game puzzles in Cyberpunk 2077</Description>
     <Authors>Kyle W. Rader (https://github.com/kyle-rader)</Authors>
 
+    <AssemblyName>breacher</AssemblyName>
+    <Version>0.1.0</Version>
+
     <OutputType>Exe</OutputType>
-    <OutputPath>../dist</OutputPath>
     <PublishTrimmed>true</PublishTrimmed>
     <!-- <PublishReadyToRun>true</PublishReadyToRun> -->
+
+    <OutputPath>../dist</OutputPath>
 
     <TargetFramework>netcoreapp5.0</TargetFramework>
     <RuntimeIdentifiers>win10-x64;osx-x64;linux-x64</RuntimeIdentifiers>
