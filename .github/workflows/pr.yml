@@ -1,4 +1,4 @@
-name: PR Validation
+name: Dotnet Test
 
 on:
   push:
