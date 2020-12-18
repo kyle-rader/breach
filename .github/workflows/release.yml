@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '5.0.100'
-      - run: dotnet pack -p:PackAsTool=true -p:ReadyToRun=false -p:PublishTrimmed=false -c release Breacher/Breacher.csproj
+      - run: dotnet pack -p:PackAsTool=true -p:ReadyToRun=false -p:PublishTrimmed=false -c release -o dist Breacher/Breacher.csproj
       - name: Nuget Push
         env:
           token: ${{ secrets.nuget_token }}

@@ -12,8 +12,6 @@
     <PublishTrimmed>true</PublishTrimmed>
     <!-- <PublishReadyToRun>true</PublishReadyToRun> -->
 
-    <OutputPath>../dist</OutputPath>
-
     <TargetFramework>netcoreapp5.0</TargetFramework>
     <RuntimeIdentifiers>win10-x64;osx-x64;linux-x64</RuntimeIdentifiers>
   </PropertyGroup>
