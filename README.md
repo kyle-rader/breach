@@ -73,12 +73,12 @@ The output (on Windows) for [puzzle 40](./puzzles/40.txt) looks like:
 ```
 type puzzles\40.txt | dotnet run -p Breacher
 Found solution with weight 5 length: 6
- [1, 3 ] (55)
- [2, 3 ] (1C)
- [2, 4 ] (BD)
- [1, 4 ] (55)
- [1, 2 ] (BD)
- [4, 2 ] (BD)
+ [ 1, 3 ] (55)
+ [ 2, 3 ] (1C)
+ [ 2, 4 ] (BD)
+ [ 1, 4 ] (55)
+ [ 1, 2 ] (BD)
+ [ 4, 2 ] (BD)
 Solved in 26.64 ms
 ```
 
