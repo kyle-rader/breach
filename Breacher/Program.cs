@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 
 namespace Breacher
 {
@@ -9,29 +10,64 @@ namespace Breacher
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(@"Enter your puzzle input:\n");
+
+            string puzzleInput = ReadLinesUntilDoubleNewline();
+            string targetsInput = ReadLinesUntilDoubleNewline();
+            string bufferInput = ReadLinesUntilDoubleNewline();
+
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
-            var targets = new Target[]
-            {
-                new Target(new [] { 1, 1, 2 }, 1),
-                new Target(new [] { 1, 1, 2 }, 2),
-                new Target(new [] { 1, 1, 1, 1 }, 3),
-            };
+            int[,] puzzle = InputParser.ParseMatrix(puzzleInput);
+            PuzzleMatrix matrix = new PuzzleMatrix(puzzle);
+            Target[] targets = InputParser.ParseTargets(targetsInput).ToArray();
+            int bufferSize = int.Parse(bufferInput.Trim());
 
+            foreach (var attempt in GenerateAttempts(targets).OrderBy(a => -a.Weight))
+            {
+                if (matrix.Check(attempt.Chain, bufferSize, out var path))
+                {
+                    Console.WriteLine($"\nFound solution with weight {attempt.Weight} length: {path.Count}");
+                    foreach (var step in path)
+                    {
+                        Console.WriteLine($" [{step.row}, {step.col} ] ({puzzle[step.row, step.col]:X})");
+                    }
+                }
+            }
+
+            stopWatch.Stop();
+            // Get the elapsed time as a TimeSpan value.
+            TimeSpan ts = stopWatch.Elapsed;
+            Console.WriteLine($"Solved in {ts.TotalMilliseconds:F2} ms");
+        }
+
+        static IEnumerable<Attempt> GenerateAttempts(Target[] targets)
+        {
             HashSet<Attempt> tried = new HashSet<Attempt>();
 
             foreach (var path in targets.GetAllCombinationsAndPermutations())
             {
                 var attempt = new Attempt(path);
                 if (tried.Add(attempt))
-                    Console.WriteLine(attempt);
+                    yield return attempt;
             }
+        }
 
-            stopWatch.Stop();
-            // Get the elapsed time as a TimeSpan value.
-            TimeSpan ts = stopWatch.Elapsed;
-            Console.WriteLine($"Finished in {ts.TotalMilliseconds:F2} ms");
+        static string ReadLinesUntilDoubleNewline()
+        {
+            StringBuilder sb = new StringBuilder();
+            while (true)
+            {
+                var line = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(line))
+                {
+                    break;
+                }
+                sb.Append(line);
+                sb.Append("\n");
+            }
+            return sb.ToString();
         }
     }
 }
