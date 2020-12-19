@@ -1,9 +1,14 @@
 # `breacher`
 A puzzle solver for the [Cyberpunk 2077 breacher minigame](https://www.rockpapershotgun.com/2020/12/14/cyberpunk-2077-hacking-minigame-breach-protocol-explained/).
 
-![Dotnet Test](https://github.com/kyle-rader/breacher/workflows/Dotnet%20Test/badge.svg)
+[![Dotnet Test](https://github.com/kyle-rader/breacher/workflows/Dotnet%20Test/badge.svg)](https://github.com/kyle-rader/breacher/actions?query=workflow%3A%22Dotnet+Test%22)
+[![Nuget](https://img.shields.io/nuget/v/breacher?color=blue)](https://www.nuget.org/packages/breacher/)
 
-You can now use this CLI to solve Breacher puzzles!
+This puzzle solver require you give the input in the format detailed below and will print the best possible solution in matrix format.
+
+**Example output** (From [puzzle 22](./puzzles/txt/22.txt))
+
+![puzzle 22 solution](./puzzles/solutions/22.png)
 
 # Install with `dotnet`
 1. [Install the dotnet CLI (.NET SDK 5.0.101)](https://dotnet.microsoft.com/download/dotnet/5.0)
@@ -11,58 +16,26 @@ You can now use this CLI to solve Breacher puzzles!
    ```
    dotnet tool install --global breacher
    ```
-   which installs from https://www.nuget.org/packages/breacher/ 
+   which installs from https://www.nuget.org/packages/breacher/.
+
+   After installing you can just run `breacher`. The screen shots below use `dist\breacher.exe` since I was running the locally built executable.
 
 # Using the tool
 
 ## Manual entry on the cli
 Enter input **manually** by running the program with no arguments. e.g.
-```
-$ dist\breacher
-You have opted to enter your puzzle manually. Enter your full puzzle input now.
-End your input with a single q at the end to finish entry and begin solving.
-4
 
-1 2 3
-1 2 3
-1 2 3
-
-1 1 2
-1 2 2
-q
-Found solution with weight 3 length: 4
-[ 1, 1 ] (1)
-[ 2, 1 ] (1)
-[ 2, 2 ] (2)
-[ 1, 2 ] (2)
-Solved in 22.69 ms
-```
+![solution 5](./puzzles/solutions/05_manual.png)
 
 ## Input File
 Enter input **with an input file**. The input file _should not have_ a `q` at the end.
-```
-$ dist\breacher input.txt
-Reading input from input.txt
-Found solution with weight 3 length: 4
-[ 1, 1 ] (1)
-[ 2, 1 ] (1)
-[ 2, 2 ] (2)
-[ 1, 2 ] (2)
-Solved in 22.69 ms
-```
+
+![solution 5](./puzzles/solutions/05_file.png)
 
 ## Piping from `stdin`
 Enter input by **pipeing from stdin**. The input file _should not have_ a `q` at the end.
-```
-$ type input.txt | dist\breacher
-Reading input from standard in.
-Found solution with weight 3 length: 4
-[ 1, 1 ] (1)
-[ 2, 1 ] (1)
-[ 2, 2 ] (2)
-[ 1, 2 ] (2)
-Solved in 22.69 ms
-```
+
+![solution 5](./puzzles/solutions/05_pipe.png)
 
 (The `|` (vertical bar) is what we call the _pipe_ operator.)
 
