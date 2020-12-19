@@ -20,6 +20,11 @@ This puzzle solver require you give the input in the format detailed below and w
 
    After installing you can just run `breacher`. The screen shots below use `dist\breacher.exe` since I was running the locally built executable.
 
+3. You can update to new releases via
+   ```
+   dotnet tool update --global breacher
+   ```
+
 # Using the tool
 
 ## Manual entry on the cli
