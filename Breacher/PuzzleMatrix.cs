@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Breacher
 {
@@ -101,6 +103,37 @@ namespace Breacher
             }
             // There were no matches in this row and we don't have any extra buffer space.
             return false;
+        }
+
+        public void Print(IEnumerable<(int row, int col)> path)
+        {
+            int[,] steps = new int[N, N];
+            int step = 1;
+            foreach (var coord in path)
+            {
+                steps[coord.row, coord.col] = step++;
+            }
+
+            ConsoleColor foreground = Console.ForegroundColor;
+
+            for (int i = 0; i < N; i++)
+            {
+                for (int j = 0; j < N; j++)
+                {
+                    if (steps[i,j] > 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = foreground;
+                    }
+
+                    var stepAnnotation = $"{input[i,j]:X}" + (steps[i, j] > 0 ? $"({steps[i, j]})" : string.Empty);
+                    Console.Write($"{stepAnnotation,-5} ");
+                }
+                Console.Write("\n\n");
+            }
         }
 
         // Yield each element in this row (iterate over the columns)

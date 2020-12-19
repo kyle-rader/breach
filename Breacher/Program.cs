@@ -95,10 +95,7 @@ Or you can pipe through stdin:
                 if (matrix.Check(attempt.Chain, bufferSize, out var path))
                 {
                     Console.WriteLine($"Found solution with weight {attempt.Weight} length: {path.Count}");
-                    foreach (var step in path.Reverse())
-                    {
-                        Console.WriteLine($"[ {step.row+1}, {step.col+1} ] ({puzzle[step.row, step.col]:X})");
-                    }
+                    matrix.Print(path.Reverse());
                     break;
                 }
             }
