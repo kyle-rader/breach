@@ -11,6 +11,7 @@ You can now use this CLI to solve Breacher puzzles!
    ```
    dotnet tool install --global breacher
    ```
+   which installs from https://www.nuget.org/packages/breacher/ 
 
 # Using the tool
 
