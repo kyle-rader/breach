@@ -66,35 +66,6 @@ ff 1c bd e9
 55 1c ff 55
 ```
 
-# Solution Format
-Right now the solution chain is just printed from start to finish, with the coordinates and values. (TBD print as matrix to make it easier to follow).
-
-The coordinates (a.k.a _indeces_) work as follows (using [puzzle 40](./puzzles/txt/40.txt))
-```
-    1  2  3  4  5  <-- columns
- 1  1c bd 55 55 1c
- 2  bd 55 1c bd 55
- 3  1c 1c 1c e9 55
- 4  bd bd 1c bd e9
- 5  1c 55 bd 55 1c
- ^
-  \
-   Rows
-```
-
-The output (on Windows) for [puzzle 40](./puzzles/txt/40.txt) looks like:
-```
-type puzzles\40.txt | dotnet run -p Breacher
-Found solution with weight 5 length: 6
- [ 1, 3 ] (55)
- [ 2, 3 ] (1C)
- [ 2, 4 ] (BD)
- [ 1, 4 ] (55)
- [ 1, 2 ] (BD)
- [ 4, 2 ] (BD)
-Solved in 26.64 ms
-```
-
 # Run/build from source
 1. [Install the dotnet CLI (.NET SDK 5.0.101)](https://dotnet.microsoft.com/download/dotnet/5.0)
 2. [Install Git](https://git-scm.com/) for your operating system.
