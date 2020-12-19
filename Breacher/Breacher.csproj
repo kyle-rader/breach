@@ -7,7 +7,7 @@
     <RepositoryUrl>https://github.com/kyle-rader/breacher</RepositoryUrl>
 
     <AssemblyName>breacher</AssemblyName>
-    <Version>0.2.0</Version>
+    <Version>0.3.0</Version>
 
     <OutputType>Exe</OutputType>
     <PublishTrimmed>true</PublishTrimmed>
@@ -16,10 +16,5 @@
     <TargetFramework>netcoreapp5.0</TargetFramework>
     <RuntimeIdentifiers>win10-x64;osx-x64;linux-x64</RuntimeIdentifiers>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="NLog" Version="4.7.6" />
-    <PackageReference Include="System.IO.Abstractions" Version="13.2.5" />
-  </ItemGroup>
 
 </Project>

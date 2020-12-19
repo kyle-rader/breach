@@ -3,4 +3,5 @@ obj/
 bin/
 .vs/
 *.zip
+*.tar
 launchSettings.json

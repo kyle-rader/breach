@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Breacher
@@ -42,6 +43,11 @@ Or you can pipe through stdin:
                         Console.WriteLine(Help);
                         Environment.Exit(0);
                         break;
+                    case "-v":
+                    case "--version":
+                        Console.WriteLine(Assembly.GetEntryAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion);
+                        Environment.Exit(0);
+                        break;
                     default:
                         filename = args[0];
                         break;
@@ -51,11 +57,19 @@ Or you can pipe through stdin:
             Stopwatch stopWatch = new Stopwatch();
 
             string input = null;
-            if (!string.IsNullOrEmpty(filename) && File.Exists(filename))
+            if (!string.IsNullOrEmpty(filename))
             {
-                stopWatch.Start();
-                Console.WriteLine($"Reading input from {filename}");
-                input = File.ReadAllText(filename);
+                if (File.Exists(filename))
+                {
+                    stopWatch.Start();
+                    Console.WriteLine($"Reading input from {filename}");
+                    input = File.ReadAllText(filename);
+                }
+                else
+                {
+                    Console.Error.WriteLine($"Input file '{filename}' does not exist.");
+                    Environment.Exit(1);
+                }
             }
             else if (Console.IsInputRedirected)
             {

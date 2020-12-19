@@ -134,6 +134,8 @@ namespace Breacher
                 }
                 Console.Write("\n\n");
             }
+            // Reset foreground
+            Console.ForegroundColor = foreground;
         }
 
         // Yield each element in this row (iterate over the columns)
