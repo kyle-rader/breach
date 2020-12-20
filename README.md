@@ -54,7 +54,7 @@ Enter input by **pipeing from stdin**. The input file _should not have_ a `q` at
 <targets: one per line>
 ```
 
-### Set buffer size with an `env var`
+## Set buffer size with an `BREACH_BUFFER`
 You can use set your buffer size with the env var `BREACH_BUFFER` so you don't have to input it every time.
 
 _Note that running these commands in your terminal only sets them for that terminal session. A new terminal will not have them set._
