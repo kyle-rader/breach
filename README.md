@@ -53,6 +53,27 @@ Enter input by **pipeing from stdin**. The input file _should not have_ a `q` at
 <blank-line>
 <targets: one per line>
 ```
+## Target and Solution Weights
+The targets you enter are weighted in the order they are entered. For example:
+```
+e9 55 55 55 bd
+e9 1c 1c 55 e9
+1c 55 1c bd 55
+55 55 1c 1c 1c
+bd e9 1c 55 e9
+
+55 55     <- target 1 weight 1
+bd 55     <- target 2 weight 2
+e9 1c 55  <- target 3 weight 4
+...       # weight 8
+```
+
+So a solution weight means:
+| solution weight | targets |
+|-----------------|---------|
+| `1` | target 1 |
+| `3` | targets 1 and 2 |
+| `7` | all first 3 targets |
 
 ## Set buffer size with an `BREACH_BUFFER`
 You can use set your buffer size with the env var `BREACH_BUFFER` so you don't have to input it every time.
