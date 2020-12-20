@@ -75,7 +75,7 @@ So a solution weight means:
 | `3` | targets 1 and 2 |
 | `7` | all first 3 targets |
 
-## Set buffer size with an `BREACH_BUFFER`
+## Set buffer size with env var `BREACH_BUFFER`
 You can use set your buffer size with the env var `BREACH_BUFFER` so you don't have to input it every time.
 
 _Note that running these commands in your terminal only sets them for that terminal session. A new terminal will not have them set._
