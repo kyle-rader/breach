@@ -129,8 +129,15 @@ namespace Breacher
                         Console.ForegroundColor = foreground;
                     }
 
-                    var stepAnnotation = $"{input[i,j]:X}" + (steps[i, j] > 0 ? $"({steps[i, j]})" : string.Empty);
-                    Console.Write($"{stepAnnotation,-5} ");
+                    Console.Write($"{input[i, j]:X}");
+                    if (steps[i, j] > 0)
+                    {
+                        ConsoleHelper.WriteColor($"-{steps[i, j]} ", ConsoleColor.DarkYellow);
+                    }
+                    else
+                    {
+                        Console.Write("   ");
+                    }
                 }
                 Console.Write("\n\n");
             }

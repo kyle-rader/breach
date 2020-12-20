@@ -133,7 +133,7 @@ Or you can pipe through stdin:
                 if (matrix.Check(attempt.Chain, bufferSize, out var path))
                 {
                     notFound = false;
-                    Console.WriteLine($"Found solution with weight: {attempt.Weight} & length: {path.Count}");
+                    Console.WriteLine($"Found solution weight: {attempt.Weight}, length: {path.Count}");
                     matrix.Print(path.Reverse());
                     break;
                 }

@@ -1,28 +1,28 @@
-# `breacher`
-A puzzle solver for the [Cyberpunk 2077 breacher minigame](https://www.rockpapershotgun.com/2020/12/14/cyberpunk-2077-hacking-minigame-breach-protocol-explained/).
+# `breach`
+A puzzle solver for the [Cyberpunk 2077 breach minigame](https://www.rockpapershotgun.com/2020/12/14/cyberpunk-2077-hacking-minigame-breach-protocol-explained/).
 
-[![Dotnet Test](https://github.com/kyle-rader/breacher/workflows/Dotnet%20Test/badge.svg)](https://github.com/kyle-rader/breacher/actions?query=workflow%3A%22Dotnet+Test%22)
-[![Nuget](https://img.shields.io/nuget/v/breacher?color=blue)](https://www.nuget.org/packages/breacher/)
+[![Dotnet Test](https://github.com/kyle-rader/breach/workflows/Dotnet%20Test/badge.svg)](https://github.com/kyle-rader/breach/actions?query=workflow%3A%22Dotnet+Test%22)
+[![Nuget](https://img.shields.io/nuget/v/breach?color=blue)](https://www.nuget.org/packages/breach/)
 
 This puzzle solver require you give the input in the format detailed below and will print the best possible solution in matrix format.
 
-**Example output** (From [puzzle 22](./puzzles/txt/22.txt))
+**Example output** (From [puzzle 37](./puzzles/txt/37.txt))
 
-![puzzle 22 solution](./puzzles/solutions/22.png)
+![puzzle 37 solution](./puzzles/solutions/37.png)
 
 # Install with `dotnet`
 1. [Install the dotnet CLI (.NET SDK 5.0.101)](https://dotnet.microsoft.com/download/dotnet/5.0)
 2. Install with `dotnet`
    ```
-   dotnet tool install --global breacher
+   dotnet tool install --global breach
    ```
-   which installs from https://www.nuget.org/packages/breacher/.
+   which installs from https://www.nuget.org/packages/breach/.
 
-   After installing you can just run `breacher`. The screen shots below use `dist\breacher.exe` since I was running the locally built executable.
+   After installing you can just run `breach`. The screen shots below use `dist\breach.exe` since I was running the locally built executable.
 
 3. You can update to new releases via
    ```
-   dotnet tool update --global breacher
+   dotnet tool update --global breach
    ```
 
 # Using the tool
@@ -30,21 +30,22 @@ This puzzle solver require you give the input in the format detailed below and w
 ## Manual entry on the cli
 Enter input **manually** by running the program with no arguments. e.g.
 
-![solution 5](./puzzles/solutions/05_manual.png)
+![solution 37](./puzzles/solutions/37_manual.png)
 
 ## Input File
 Enter input **with an input file**. The input file _should not have_ a `q` at the end.
 
-![solution 5](./puzzles/solutions/05_file.png)
+![solution 37](./puzzles/solutions/37_file.png)
 
 ## Piping from `stdin`
 Enter input by **pipeing from stdin**. The input file _should not have_ a `q` at the end.
 
-![solution 5](./puzzles/solutions/05_pipe.png)
+![solution 37](./puzzles/solutions/37_pipe.png)
 
 (The `|` (vertical bar) is what we call the _pipe_ operator.)
 
 # Puzzle Input Format
+
 ```html
 <buffer-size: single digit>
 <blank-line>
@@ -53,7 +54,22 @@ Enter input by **pipeing from stdin**. The input file _should not have_ a `q` at
 <targets: one per line>
 ```
 
-For example see the [demo puzzles](./puzzles/txt/).
+### Set buffer size with an `env var`
+You can use set your buffer size with the env var `BREACH_BUFFER` so you don't have to input it every time.
+
+_Note that running these commands in your terminal only sets them for that terminal session. A new terminal will not have them set._
+
+**Windows**
+```
+set BREACH_BUFFER=6
+```
+
+**OSX / Linux**
+```
+export BREACH_BUFFER=6
+```
+
+For examples see the [demo puzzles](./puzzles/txt/).
 
 Puzzle [`txt/01.txt`](./puzzles/txt/01.txt) is:
 ```
@@ -76,7 +92,7 @@ ff 1c bd e9
 2. [Install Git](https://git-scm.com/) for your operating system.
 3. [Open a terminal](https://www.google.com/search?rlz=1C1GCEA_enUS911US911&sxsrf=ALeKk01gg9j9o5joiNmR79cQ3YfaJC61Jw%3A1608280570266&ei=-mncX4fVD9fL-gSu4bKgBw&q=how+to+open+a+terminal&oq=how+to+open+a+terminal&gs_lcp=CgZwc3ktYWIQAzIECCMQJzIKCAAQyQMQFBCHAjICCAAyAggAMgIIADICCAAyAggAMgIIADICCAAyAggAOgQIABBHOggIABCxAxCDAToLCC4QsQMQxwEQowI6BAguEEM6BQgAELEDOgQIABBDOggILhCxAxCDAToHCAAQyQMQQzoCCC46CAgAEMkDEJECOgUIABCRAjoHCAAQFBCHAlDOYFidcmDndWgAcAJ4AYABUIgBygiSAQIyMpgBAKABAaoBB2d3cy13aXrIAQjAAQE&sclient=psy-ab&ved=0ahUKEwiHutuAkNftAhXXpZ4KHa6wDHQQ4dUDCA0&uact=5) and clone this repo.
    ```
-   git clone https://github.com/kyle-rader/breacher.git
+   git clone https://github.com/kyle-rader/breach.git
    ```
 4. `cd` into the repo.
 5. Compile the program
@@ -86,7 +102,7 @@ ff 1c bd e9
    This will make a folder called `dist` in which you will find the self-contained executable.
    You can then run it via
    ```
-   dist\breacher.exe
+   dist\breach.exe
    ```
 
 # Future Work
