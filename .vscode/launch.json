@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Breacher/bin/Debug/netcoreapp5.0/Breacher.dll",
+            "program": "${workspaceFolder}/Breach/bin/Debug/netcoreapp5.0/Breach.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Breacher",
+            "cwd": "${workspaceFolder}/Breach",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false

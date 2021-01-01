@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Breacher
+namespace Breach
 {
     public static class ConsoleHelper
     {

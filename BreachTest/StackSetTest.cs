@@ -1,4 +1,4 @@
-﻿using Breacher;
+﻿using Breach;
 
 using FluentAssertions;
 
@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 using System;
 
-namespace BreacherTest
+namespace BreachTest
 {
     public class StackSetTest
     {

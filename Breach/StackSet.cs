@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace Breacher
+namespace Breach
 {
     public class StackSet<T> : IEnumerable<T>
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Breacher
+namespace Breach
 {
     public class Attempt
     {
@@ -73,14 +73,14 @@ namespace Breacher
                          * 1 1 1 1
                          * | | x          When i_t and i_result are at x, we stop, and reset.
                          * 1 1 2          We need to restart at the first position
-                         * 
+                         *
                          * So we backtrack i_result by i_t. Leaving the next loop iteration checking:
                          * 1 1 1 1
                          *   | | x
                          *   1 1 2
                          *
                          * Followed by
-                         * 
+                         *
                          * 1 1 1 1
                          *     | | ✔
                          *     1 1 2

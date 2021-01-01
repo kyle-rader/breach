@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Breacher
+namespace Breach
 {
     public class PuzzleMatrix
     {

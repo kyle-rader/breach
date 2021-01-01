@@ -6,14 +6,14 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Breacher
+namespace Breach
 {
     class Program
     {
         public const string BREACH_BUFFER_ENV_VAR = "BREACH_BUFFER";
         public const int DEFAULT_BUFFER_SIZE = 4;
         public const string Help = @"Usage:
-See https://github.com/kyle-rader/breacher/blob/main/README.md for full usage.
+See https://github.com/kyle-rader/Breach/blob/main/README.md for full usage.
 
 You can enter input manually:
   breach

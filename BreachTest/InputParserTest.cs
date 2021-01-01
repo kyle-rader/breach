@@ -1,4 +1,4 @@
-﻿using Breacher;
+﻿using Breach;
 
 using FluentAssertions;
 
@@ -7,7 +7,7 @@ using NUnit.Framework;
 using System;
 using System.Linq;
 
-namespace BreacherTest
+namespace BreachTest
 {
     public class InputParserTest
     {

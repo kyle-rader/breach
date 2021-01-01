@@ -1,4 +1,4 @@
-# `breach` (Formerly `breacher`)
+# `breach` (Formerly `Breach`)
 A puzzle solver for the [Cyberpunk 2077 breach minigame](https://www.rockpapershotgun.com/2020/12/14/cyberpunk-2077-hacking-minigame-breach-protocol-explained/).
 
 [![Dotnet Test](https://github.com/kyle-rader/breach/workflows/Dotnet%20Test/badge.svg)](https://github.com/kyle-rader/breach/actions?query=workflow%3A%22Dotnet+Test%22)

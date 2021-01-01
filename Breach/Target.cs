@@ -1,4 +1,4 @@
-﻿namespace Breacher
+﻿namespace Breach
 {
     public struct Target
     {

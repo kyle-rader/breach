@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-namespace Breacher
+namespace Breach
 {
     public class InputParser
     {
