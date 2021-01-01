@@ -32,6 +32,8 @@ Or you can pipe through stdin:
 
         static void Main(string[] args)
         {
+            Stopwatch stopWatch = new Stopwatch();
+
             string version = Assembly.GetEntryAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
             string title = $"breach version: {version}";
 
@@ -63,7 +65,24 @@ Or you can pipe through stdin:
 
             Console.WriteLine(title);
 
-            Stopwatch stopWatch = new Stopwatch();
+            /*
+             * Buffer size defaults to 4.
+             * Then override with the env var
+             * Final override with actual input
+             */
+            int bufferSize = DEFAULT_BUFFER_SIZE;
+            string bufferEnvVar = Environment.GetEnvironmentVariable(BREACH_BUFFER_ENV_VAR);
+            if (!string.IsNullOrWhiteSpace(bufferEnvVar) && int.TryParse(bufferEnvVar, out bufferSize))
+            {
+                ConsoleHelper.DarkGray("Env Var ");
+                ConsoleHelper.Green(BREACH_BUFFER_ENV_VAR);
+                ConsoleHelper.DarkGray(" is set to ");
+                ConsoleHelper.Green($"{bufferSize}\n\n");
+            }
+            else
+            {
+                ConsoleHelper.DarkGray($"buffer size env var {BREACH_BUFFER_ENV_VAR} is not set. Set it to your buffer size to skip manual entry of the buffer size.");
+            }
 
             string input = null;
             if (!string.IsNullOrEmpty(filename))
@@ -98,42 +117,40 @@ Or you can pipe through stdin:
                 }
                 stopWatch.Start();
                 input = sb.ToString();
+                Console.WriteLine();
             }
 
             // Split input on double newlines (separated by a single blank line).
             string[] inputSplit = input.Split(new[] { "\r\n\r\n", "\n\n" }, StringSplitOptions.RemoveEmptyEntries);
 
-            /*
-             * Buffer size defaults to 4.
-             * Then override with the env var
-             * Final override with actual input
-             */
-            int bufferSize = DEFAULT_BUFFER_SIZE;
-            string bufferEnvVar = Environment.GetEnvironmentVariable(BREACH_BUFFER_ENV_VAR);
-            if (!string.IsNullOrWhiteSpace(bufferEnvVar) && int.TryParse(bufferEnvVar, out bufferSize))
-            {
-                ConsoleHelper.DarkGray($"environment variable {BREACH_BUFFER_ENV_VAR} is set to {bufferSize}\n");
-            }
-
             int inputOffset = 0;
             if (inputSplit.Length == 3)
             {
                 inputOffset = 1;
-                int.TryParse(inputSplit[0].Trim(), out bufferSize);
+                if (int.TryParse(inputSplit[0].Trim(), out bufferSize))
+                {
+                    ConsoleHelper.DarkGray("Overriding ");
+                    ConsoleHelper.Green(BREACH_BUFFER_ENV_VAR);
+                    ConsoleHelper.DarkGray(" with input value ");
+                    ConsoleHelper.Green($"{bufferSize}\n");
+                }
             }
 
             int[,] puzzle = InputParser.ParseMatrix(inputSplit[0 + inputOffset]);
             PuzzleMatrix matrix = new PuzzleMatrix(puzzle);
             Target[] targets = InputParser.ParseTargets(inputSplit[1 + inputOffset]).ToArray();
 
-            Console.WriteLine($"Solving for buffer size: {bufferSize} ...");
+            Console.Write($"\nSolving for buffer size: ");
+            ConsoleHelper.Green($"{bufferSize}\n");
             bool notFound = true;
-            foreach (var attempt in GenerateAttempts(targets).OrderBy(a => -a.Weight))
+            foreach (var attempt in GenerateAttempts(targets).OrderBy(a => -a.Weight).ThenBy(a => a.Length))
             {
                 if (matrix.Check(attempt.Chain, bufferSize, out var path))
                 {
                     notFound = false;
-                    Console.WriteLine($"Found solution weight: {attempt.Weight}, length: {path.Count}");
+                    Console.Write("Best Solution: ");
+                    ConsoleHelper.DarkYellow("weight "); ConsoleHelper.Green($"{attempt.Weight} ");
+                    ConsoleHelper.DarkYellow("length "); ConsoleHelper.Green($"{path.Count}\n");
                     matrix.Print(path.Reverse());
                     break;
                 }
@@ -148,7 +165,7 @@ Or you can pipe through stdin:
 
             // Get the elapsed time as a TimeSpan value.
             TimeSpan ts = stopWatch.Elapsed;
-            Console.WriteLine($"Took {ts.TotalMilliseconds:F2} ms");
+            Console.WriteLine($"Finished in {ts.TotalMilliseconds:F2} ms (aka {ts.TotalSeconds:F2} seconds)");
 
         }
 

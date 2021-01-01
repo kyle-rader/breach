@@ -12,6 +12,11 @@ namespace Breacher
             Console.ForegroundColor = original;
         }
 
+        public static void Red(string input)
+        {
+            WriteColor(input, ConsoleColor.Red);
+        }
+
         public static void Green(string input)
         {
             WriteColor(input, ConsoleColor.Green);
@@ -22,9 +27,14 @@ namespace Breacher
             WriteColor(input, ConsoleColor.DarkGray);
         }
 
-        internal static void Red(string input)
+        public static void Yellow(string input)
         {
-            WriteColor(input, ConsoleColor.Red);
+            WriteColor(input, ConsoleColor.Yellow);
+        }
+
+        public static void DarkYellow(string input)
+        {
+            WriteColor(input, ConsoleColor.DarkYellow);
         }
     }
 }

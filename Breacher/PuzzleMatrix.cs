@@ -115,6 +115,7 @@ namespace Breacher
             }
 
             ConsoleColor foreground = Console.ForegroundColor;
+            Console.WriteLine();
 
             for (int i = 0; i < N; i++)
             {
