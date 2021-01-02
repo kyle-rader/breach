@@ -7,7 +7,7 @@
     <RepositoryUrl>https://github.com/kyle-rader/breach</RepositoryUrl>
 
     <AssemblyName>breach</AssemblyName>
-    <Version>0.5.0</Version>
+    <Version>0.5.1</Version>
 
     <OutputType>Exe</OutputType>
     <PublishTrimmed>true</PublishTrimmed>
