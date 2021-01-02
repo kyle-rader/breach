@@ -81,7 +81,7 @@ Or you can pipe through stdin:
             }
             else
             {
-                ConsoleHelper.DarkGray($"buffer size env var {BREACH_BUFFER_ENV_VAR} is not set. Set it to your buffer size to skip manual entry of the buffer size.");
+                ConsoleHelper.DarkGray($"buffer size env var {BREACH_BUFFER_ENV_VAR} is not set.\nSet it to your buffer size to skip manual entry of the buffer size.\n\n");
             }
 
             string input = null;
