@@ -4,10 +4,11 @@ A puzzle solver for the [Cyberpunk 2077 breach minigame](https://www.rockpapersh
 [![Dotnet Test](https://github.com/kyle-rader/breach/workflows/Dotnet%20Test/badge.svg)](https://github.com/kyle-rader/breach/actions?query=workflow%3A%22Dotnet+Test%22)
 [![Nuget](https://img.shields.io/nuget/v/breach?color=blue)](https://www.nuget.org/packages/breach/)
 
-This puzzle solver requires you give the input in the format detailed below and will print the best possible solution in matrix format.
-
 ### Tip Jar
 If you like this software feel free to [leave a tip](paypal.me/kyrader) :)
+
+### Output
+This puzzle solver requires you give the input in the format detailed below and will print the best possible solution in matrix format. Input can be given from a file or stdin.
 
 **Example output** (From [puzzle 37](./puzzles/txt/37.txt))
 
