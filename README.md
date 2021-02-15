@@ -5,7 +5,7 @@ A puzzle solver for the [Cyberpunk 2077 breach minigame](https://www.rockpapersh
 [![Nuget](https://img.shields.io/nuget/v/breach?color=blue)](https://www.nuget.org/packages/breach/)
 
 ### Tip Jar
-If you like this software feel free to [leave a tip](paypal.me/kyrader) :)
+If you like this software feel free to [leave a tip](https://paypal.me/kyrader) :)
 
 ### Output
 This puzzle solver requires you give the input in the format detailed below and will print the best possible solution in matrix format. Input can be given from a file or stdin.
