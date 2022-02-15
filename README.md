@@ -15,7 +15,15 @@ This puzzle solver requires you give the input in the format detailed below and 
 ![puzzle 37 solution](./puzzles/solutions/37.png)
 
 # Install with `dotnet`
-1. [Install the dotnet CLI (.NET SDK 5.0.101)](https://dotnet.microsoft.com/download/dotnet/5.0)
+1. [Install the dotnet CLI (.NET SDK 6)](https://dotnet.microsoft.com/download/dotnet/6.0)
+
+   or
+   
+   You can now install `dotnet` with [`winget`](https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1):
+   ```
+   winget install Microsoft.dotnet
+   ```
+
 2. Install with `dotnet`
    ```
    dotnet tool install --global breach
